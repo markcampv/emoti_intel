@@ -25,7 +25,7 @@ func main() {
 	var journal string
 	scanner := bufio.NewScanner(os.Stdin)
 
-	fmt.Println("Hey there, what would you like to do today?")
+	fmt.Println("Hey there, what would you like to do today? You can either write or read")
 	fmt.Scanln(&journal)
 	switch journal {
 	case "write":
