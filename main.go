@@ -12,17 +12,16 @@ import (
 )
 
 func main() {
-
-	db, err := sql.Open("mysql",
-		"user:password/journaldb")
+	var emotion string
+	var response string
+	var journal string
+	//Set the environment variable like the following: export DB_CREDENTIALS="user:password/journaldb"
+	dbAccess := os.Getenv("DB_CREDENTIALS")
+	db, err := sql.Open("mysql", dbAccess)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
-
-	var emotion string
-	var response string
-	var journal string
 	scanner := bufio.NewScanner(os.Stdin)
 
 	fmt.Println("Hey there, what would you like to do today? You can either write or read")
